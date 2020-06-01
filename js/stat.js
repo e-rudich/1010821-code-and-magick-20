@@ -42,25 +42,23 @@ var renderBar = function (ctx, barCoordinateX, barCoordinateY, barWidth, barHeig
   ctx.fillRect(barCoordinateX, barCoordinateY, barWidth, barHeight);
 };
 
-var renderChart = function (ctx, arrayPlayers, arrayTimes) {
-  var maxTime = getMaxElement(arrayTimes);
+var renderChart = function (ctx, players, times) {
+  var maxTime = getMaxElement(times);
 
-  arrayPlayers.forEach(function (item, i, players) {
-    var barHeight = (BAR_MAX_HEIGHT * arrayTimes[i]) / maxTime;
-    var barWidth = BAR_WIDTH;
+  players.forEach(function (player, i) {
+    var barHeight = (BAR_MAX_HEIGHT * times[i]) / maxTime;
     var coordinateX = CLOUD_X + BAR_GAP + (BAR_GAP + BAR_WIDTH) * i;
     var coordinateY = CLOUD_HEIGHT - barHeight - TEXT_HEIGHT;
 
     ctx.fillStyle = TEXT_COLOR;
-    ctx.fillText(Math.round(arrayTimes[i]), coordinateX, coordinateY - FONT_GAP);
-    ctx.fillText(players[i], coordinateX, CLOUD_HEIGHT - FONT_GAP);
+    ctx.fillText(Math.round(times[i]), coordinateX, coordinateY - FONT_GAP);
+    ctx.fillText(player, coordinateX, CLOUD_HEIGHT - FONT_GAP);
 
-    ctx.fillStyle = players[i] === 'Вы' ? 'rgba(255, 0, 0, 1)' : 'hsl(240, ' + getRandom(100) + '%, 50%)';
+    ctx.fillStyle = player === 'Вы' ? 'rgba(255, 0, 0, 1)' : 'hsl(240, ' + getRandom(100) + '%, 50%)';
 
-    renderBar(ctx, coordinateX, coordinateY, barWidth, barHeight);
+    renderBar(ctx, coordinateX, coordinateY, BAR_WIDTH, barHeight);
   });
 };
-
 
 
 window.renderStatistics = function (ctx, players, times) {
