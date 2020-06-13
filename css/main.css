@@ -750,10 +750,14 @@ input[type=radio]:checked + .review-mark-label
 
 .setup-close
 {
-    font-size: 70px;
+    font: normal 70px "PT Mono";
+    line-height: 70px;
 
     top: 20px;
     right: 20px;
+
+    margin: 0px;
+    padding: 0px;
 
     float: right;
 
@@ -761,6 +765,7 @@ input[type=radio]:checked + .review-mark-label
     transform: translateY(-.3em);
 
     color: #000;
+    background-color: transparent;
 }
 
 .setup-artifacts-shop
