@@ -10,7 +10,7 @@
 
   window.data = {
     wizardNames: WIZARD_NAMES,
-    wizardLastnames: WIZARD_LASTNAMES,
+    wizardLastNames: WIZARD_LASTNAMES,
     coatColors: COAT_COLORS,
     eyesColors: EYES_COLORS,
     fireballColors: FIREBALL_COLORS

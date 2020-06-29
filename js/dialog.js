@@ -67,7 +67,6 @@
 
     var onMouseMove = function (moveEvt) {
       moveEvt.preventDefault();
-      dragged = true;
 
       var shift = {
         x: startCoords.x - moveEvt.clientX,
@@ -78,6 +77,8 @@
         x: moveEvt.clientX,
         y: moveEvt.clientY
       };
+
+      dragged = true;
 
       setupDialog.style.top = (setupDialog.offsetTop - shift.y) + 'px';
       setupDialog.style.left = (setupDialog.offsetLeft - shift.x) + 'px';
