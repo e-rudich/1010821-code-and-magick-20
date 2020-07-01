@@ -78,7 +78,9 @@
         y: moveEvt.clientY
       };
 
-      dragged = true;
+      if (shift.x !== 0 || shift.y !== 0) {
+        dragged = true;
+      }
 
       setupDialog.style.top = (setupDialog.offsetTop - shift.y) + 'px';
       setupDialog.style.left = (setupDialog.offsetLeft - shift.x) + 'px';

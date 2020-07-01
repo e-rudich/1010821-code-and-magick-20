@@ -8,7 +8,7 @@
     var wizards = [];
     for (var i = 0; i < count; i++) {
       var wizard = {
-        name: window.utils.getRandomElement(window.data.wizardNames) + ' ' + window.utils.getRandomElement(window.data.wizardLastnames),
+        name: window.utils.getRandomElement(window.data.wizardNames) + ' ' + window.utils.getRandomElement(window.data.wizardLastNames),
         coatColor: window.utils.getRandomElement(window.data.coatColors),
         eyesColor: window.utils.getRandomElement(window.data.eyesColors)
       };
