@@ -1,14 +1,14 @@
 'use strict';
 
 (function () {
-  var fireballColorSetup = window.dialog.setupDialog.querySelector('.setup-fireball-wrap');
-  var fireColorInput = window.dialog.setupDialog.querySelector('input[name="fireball-color"]');
+  var fireballColorSetup = window.dialog.setup.querySelector('.setup-fireball-wrap');
+  var fireColorInput = window.dialog.setup.querySelector('input[name="fireball-color"]');
 
-  var coatColorSetup = window.dialog.setupDialog.querySelector('.wizard-coat');
-  var coatColorInput = window.dialog.setupDialog.querySelector('input[name="coat-color"]');
+  var coatColorSetup = window.dialog.setup.querySelector('.wizard-coat');
+  var coatColorInput = window.dialog.setup.querySelector('input[name="coat-color"]');
 
-  var eyesColorSetup = window.dialog.setupDialog.querySelector('.wizard-eyes');
-  var eyesColorInput = window.dialog.setupDialog.querySelector('input[name="eyes-color"]');
+  var eyesColorSetup = window.dialog.setup.querySelector('.wizard-eyes');
+  var eyesColorInput = window.dialog.setup.querySelector('input[name="eyes-color"]');
 
   // Функция выбора цвета фаербола по клику
   var fireballClickHandler = function () {

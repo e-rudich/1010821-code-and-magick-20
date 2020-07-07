@@ -7,11 +7,6 @@
   var setupCloseIcon = setupDialog.querySelector('.setup-close');
   var dialogHandle = setupDialog.querySelector('.upload');
 
-  window.dialog = {
-    setupDialog: setupDialog,
-    userNameSetup: userNameSetup
-  };
-
   // Функции для слушателей событий
   var onPopupEscPress = function (evt) {
     if (evt.key === 'Escape' && document.activeElement !== userNameSetup) {
@@ -23,7 +18,6 @@
   var openPopup = function () {
     setupDialog.classList.remove('hidden');
     setupDialog.querySelector('.setup-similar').classList.remove('hidden');
-
 
     document.addEventListener('keydown', onPopupEscPress);
   };
@@ -105,4 +99,10 @@
   });
 
   showSetupWindow();
+
+  window.dialog = {
+    setup: setupDialog,
+    userNameSetup: userNameSetup,
+    closePopup: closePopup
+  };
 })();
