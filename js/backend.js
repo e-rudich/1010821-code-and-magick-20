@@ -16,15 +16,15 @@
       }
     });
 
+    xhr.addEventListener('error', function () {
+      onError('Произошла ошибка запроса');
+    });
+
     return xhr;
   };
 
   var load = function (onLoad, onError) {
     var xhr = createXHR(onLoad, onError);
-
-    xhr.addEventListener('error', function () {
-      onError('Произошла ошибка запроса');
-    });
 
     xhr.open('GET', URL_GET);
     xhr.send();
