@@ -11,7 +11,8 @@
   };
 
   var onSuccessLoad = function (data) {
-    window.generateWizards(data);
+    window.wizards.render(data);
+    // window.wizards.update();
   };
 
   var onErrorLoad = function (message) {
