@@ -23,7 +23,9 @@
     var coatColor = window.utils.getRandomElement(window.data.coatColors);
     coatColorSetup.style.fill = coatColor;
     coatColorInput.value = coatColor;
-    window.wizards.update();
+    window.debounce(function () {
+      window.wizards.update(window.form.wizards);
+    })();
   };
 
   // Функция выбора цвета глаз по клику
@@ -31,7 +33,9 @@
     var eyesColor = window.utils.getRandomElement(window.data.eyesColors);
     eyesColorSetup.style.fill = eyesColor;
     eyesColorInput.value = eyesColor;
-    window.wizards.update();
+    window.debounce(function () {
+      window.wizards.update(window.form.wizards);
+    })();
   };
 
   fireballColorSetup.addEventListener('click', fireballClickHandler);

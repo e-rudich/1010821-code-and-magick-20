@@ -2,9 +2,9 @@
 
 (function () {
   var DEBOUNCE_INTERVAL = 500; // ms
+  var lastTimeout = null;
 
   window.debounce = function (callback) {
-    var lastTimeout = null;
 
     return function () {
       var parameters = arguments;

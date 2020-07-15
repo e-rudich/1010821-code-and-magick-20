@@ -11,8 +11,8 @@
   };
 
   var onSuccessLoad = function (data) {
-    window.wizards.render(data);
-    // window.wizards.update();
+    window.wizards.update(data);
+    window.form = {wizards: data};
   };
 
   var onErrorLoad = function (message) {

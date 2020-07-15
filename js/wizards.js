@@ -3,10 +3,6 @@
 (function () {
   var WIZARDS_NUMBER = 4;
 
-  var coatColor = 'rgb(101, 137, 164)';
-  var eyesColor = 'black';
-  var wizardsAll = [];
-
   var similarWizardTemplate = document.querySelector('#similar-wizard-template')
     .content
     .querySelector('.setup-similar-item');
@@ -26,6 +22,7 @@
 
   // Функция отрисовки похожих волшебников
   var renderWizards = function (wizards) {
+    similarListElement.innerHTML = '';
     var fragment = document.createDocumentFragment();
     wizards.slice(0, WIZARDS_NUMBER).forEach(function (wizard) {
       fragment.appendChild(renderWizard(wizard));
@@ -34,11 +31,14 @@
   };
 
   var getRank = function (wizard) {
+    var currentCoatColor = document.querySelector('[name="coat-color"]');
+    var currentEyesColor = document.querySelector('[name="eyes-color"]');
+
     var rank = 0;
-    if (wizard.colorCoat === coatColor) {
+    if (wizard.colorCoat === currentCoatColor.value) {
       rank += 2;
     }
-    if (wizard.colorEyes === eyesColor) {
+    if (wizard.colorEyes === currentEyesColor.value) {
       rank += 1;
     }
     return rank;
@@ -54,14 +54,15 @@
     }
   };
 
-  var updateWizards = function () {
-    renderWizards(wizardsAll.sort(function (left, right) {
+  var updateWizards = function (data) {
+    var sortedWizards = data.slice().sort(function (left, right) {
       var rankDiff = getRank(right) - getRank(left);
       if (rankDiff === 0) {
         rankDiff = namesComparator(left.name, right.name);
       }
       return rankDiff;
-    }));
+    });
+    renderWizards(sortedWizards);
   };
 
   window.wizards = {
