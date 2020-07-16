@@ -1,6 +1,7 @@
 'use strict';
 
 (function () {
+
   var fireballColorSetup = window.dialog.setup.querySelector('.setup-fireball-wrap');
   var fireColorInput = window.dialog.setup.querySelector('input[name="fireball-color"]');
 
@@ -22,6 +23,9 @@
     var coatColor = window.utils.getRandomElement(window.data.coatColors);
     coatColorSetup.style.fill = coatColor;
     coatColorInput.value = coatColor;
+    window.debounce(function () {
+      window.wizards.update(window.form.wizards);
+    })();
   };
 
   // Функция выбора цвета глаз по клику
@@ -29,9 +33,13 @@
     var eyesColor = window.utils.getRandomElement(window.data.eyesColors);
     eyesColorSetup.style.fill = eyesColor;
     eyesColorInput.value = eyesColor;
+    window.debounce(function () {
+      window.wizards.update(window.form.wizards);
+    })();
   };
 
   fireballColorSetup.addEventListener('click', fireballClickHandler);
   coatColorSetup.addEventListener('click', coatClickHandler);
   eyesColorSetup.addEventListener('click', eyesClickHandler);
+
 })();
